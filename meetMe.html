@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Me</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+        .card {
+            background: #222222ae;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px;
+        }
+        .card h1 {
+            font-size: 2em;
+            color: #fff;
+            margin: 0;
+        }
+        .card p {
+            font-size: 1.2em;
+            color: #fff;
+            margin: 10px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            position: relative;
+        }
+        .buttons button {
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buttons button:hover {
+            background: #ff4c4c;
+        }
+        #noBtn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: left 0.3s, top 0.3s;
+        }
+        body{
+            background-image: url("/image.png");
+            background-repeat: repeat;
+            background-position: center;
+            background-size: 500px;
+            opacity: var(#5555);
+        }
+    </style>
+    <script>
+      
+
+        function handleNoHover() {
+            const noBtn = document.getElementById('noBtn');
+            const bodyWidth = document.body.clientWidth;
+            const bodyHeight = document.body.clientHeight;
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            const randomX = Math.random() * (bodyWidth - btnWidth);
+            const randomY = Math.random() * (bodyHeight - btnHeight);
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        }
+    </script>
+</head>
+<body>
+    <div class="card">
+        <h1>Will you meet me today at 5 PM?</h1>
+        <p>Please let me know by clicking one of the buttons below.</p>
+        <div class="buttons">
+            <button onclick="alert('Great! Can’t wait to see you.')">Yes</button>
+            <button id="noBtn" onmouseover="handleNoHover()">No</button>
+        </div>
+    </div>
+</body>
+</html>
